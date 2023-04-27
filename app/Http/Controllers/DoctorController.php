@@ -136,7 +136,7 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::find($id);
         $availabilites = $doctor->availability;
-        if ($availabilites->isEmpty()) 
+        if ($availabilites->isEmpty())
         {
             return back()->with('error', "Something went wrong please try again!");
         }
@@ -148,8 +148,8 @@ class DoctorController extends Controller
         $friday = $availabilites->where("days", 5)->first();
         $saturday = $availabilites->where("days", 6)->first();
         $sunday = $availabilites->where("days", 7)->first();
-        
-       
+
+
         return view('edit', compact('doctor', 'availabilites', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'));
     }
 
@@ -210,7 +210,7 @@ class DoctorController extends Controller
                                 ->groupBy('doctor_id');
                             })->where(function ($query) use ($request) {
                                 if ($request->name) {
-                                    $query->where('name', 'LIKE', '%' . $request->name . '%');
+                                    $query->where('id', $request->name);
                                 }
                             })
                             ->orderBy('id', 'DESC')

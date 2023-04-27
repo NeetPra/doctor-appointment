@@ -45,12 +45,12 @@
                                         </th>
                                         <th>
                                             <div class="form-group">
-                                                <input class="form-control filter-books"
-                                                    type="text" placeholder="Enter Name"
-                                                    name="name"
-                                                    id="name"
-                                                    autocomplete="off"
-                                                >
+                                                <select class="form-control select2"  name="name" id="name" style="width: 100%;">
+                                                    <option value="">--Select Doctor--</option>
+                                                    @foreach ($doctors as $doctor)
+                                                        <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </th>
                                         <th>
@@ -64,7 +64,7 @@
                                                     <option value="5">Friday</option>
                                                     <option value="6">Saturday</option>
                                                     <option value="7">Sunday</option>
-                                                
+
                                                 </select>
                                             </div>
                                         </th>
@@ -168,7 +168,7 @@
     </div>
 
 
-    
+
 <div class="modal fade" id="show-time"   tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -178,7 +178,7 @@
         </div>
         <div class="modal-body">
             <div class="card card-primary" id="show-avaibility">
-            
+
             </div>
         </div>
 
